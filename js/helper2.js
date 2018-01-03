@@ -23,7 +23,7 @@ function collect_data() {
 	$( ".container-fluid" ).append(thank_you_string);
 
 	setTimeout(function () {
-		window.location.href = "C:\\DATA\\Superennustaja\\nettisivudraftit\\nettisivut_bootsrtrap_1\\index.html";
+		window.location.href = "./index.html";
 	}, 4000); //will call the function after 4 secs.
 }
 

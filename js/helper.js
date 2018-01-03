@@ -1,5 +1,5 @@
 function UserAction() {
-	location.href = "C:\\DATA\\Superennustaja\\nettisivudraftit\\nettisivut_bootsrtrap_1\\questions.html";
+	location.href = "./questions.html";
 }
 
 // function upDate() {
