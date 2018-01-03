@@ -1,4 +1,0 @@
-{
-	"vastaus_1": "Teksti tai numero vastauksesta 1",
-	"vastaus_2": "Teksti tai numero vastauksesta 2"
-}
