@@ -1,9 +1,10 @@
 var number_of_questions = 0;
+var question_strings = [];
 var $top = $('.container-fluid');
 var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%" value=""></div><div class="col-md-3"></div></div>';
 var string_2 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <hr> </div><div class="col-md-3"></div></div>';
 var submit_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <form onclick="collect_data()"> <input type="button" value="Lähetä vastaukset"></form> </div><div class="col-md-3"></div></div>';
-var json_answers = '{"email": "info@superennustaja.fi","answers": %json_array%}'
+var json_answers = '{"email": "info@superennustaja.fi","questions_and_answers": %json_array%}'
 var thank_you_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6 text-center"> <br> <h1>Kiitos vastauksista!</h1> </div><div class="col-md-3"></div></div>';
 
 function collect_data() {
@@ -11,6 +12,7 @@ function collect_data() {
 	for (var i = 0; i<number_of_questions; i++) {
 		jsonArr.push({
 			id: i+1,
+			question: question_strings[i],
 			answer: document.getElementById(i+1).value
 		});
 	}
@@ -40,6 +42,7 @@ function up_date() {
 		append_string = string_1  + string_2
 		id =questions[i].id;
 		text = questions[i].text_fi;
+		question_strings[i] = text;
 		append_string = append_string.replace("%data%", text);
 		append_string = append_string.replace("%id%", id)
 		$top.append(append_string);
