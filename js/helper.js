@@ -1,7 +1,7 @@
 var number_of_questions = 0;
 var question_strings = [];
 var $top = $('.container-fluid');
-var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%" class="form_inline" value=""> % </div><div class="col-md-3"></div></div>';
+var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%"> % </div><div class="col-md-3"></div></div>';
 var string_2 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <hr> </div><div class="col-md-3"></div></div>';
 var submit_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <form onclick="collect_data()"> <input type="button" value="Lähetä vastaukset"></form> </div><div class="col-md-3"></div></div>';
 var json_answers = '{"user_name": "test_name", "email": "info@superennustaja.fi", "extra_info_1": "test_info_1", "questions_and_answers": %json_array%}'
