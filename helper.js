@@ -3,6 +3,7 @@ var question_strings = [];
 var $top = $('.container-fluid');
 var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%"> % </div><div class="col-md-3"></div></div>';
 var string_2 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <hr> </div><div class="col-md-3"></div></div>';
+var string_3 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <br> </div><div class="col-md-3"></div></div>';
 var submit_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <form onclick="collect_data()"> <input type="button" value="Lähetä vastaukset"></form> </div><div class="col-md-3"></div></div>';
 var json_answers = '{"email": "%email_string%", "user_name": "test_name", "answer_time": "%time_string%", "extra_info_1": "test_info_1", "questions_and_answers": %json_array%}'
 var thank_you_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6 text-center"> <br> <h1>Kiitos vastauksista!</h1> </div><div class="col-md-3"></div></div>';
@@ -51,7 +52,7 @@ function up_date() {
 		append_string = append_string.replace("%id%", id)
 		$top.append(append_string);
 	}
-	$top.append(submit_string);
+	$top.append(submit_string + string_3);
 }
 
 function UserAction() {
@@ -66,7 +67,7 @@ function S4() {
 // guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 
 
-var intro_items;
-intro_items = $("#intro_text");
-intro_items_2 = intro_items.find("p")
-intro_items_2.css("font-size", "30px");
+//var intro_items;
+//intro_items = $("#intro_text");
+//intro_items_2 = intro_items.find("p")
+//intro_items_2.css("font-size", "30px");
