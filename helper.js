@@ -101,7 +101,7 @@ var output;
 // 	}
 // });
 
-document.addEventListener("mousemove", function(){
+document.addEventListener("mousedown", function(){
 	for (var i = 0; i<number_of_questions+1; i++) {
 		slider = document.getElementById(i+1);
 		output = document.getElementById("demo"+ (i+1));
