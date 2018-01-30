@@ -1,7 +1,9 @@
 var number_of_questions = 0;
 var question_strings = [];
+var slider_id_json = [];
 var $top = $('.container-fluid');
-var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%"> % </div><div class="col-md-3"></div></div>';
+// var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="text" id="%id%"> % </div><div class="col-md-3"></div></div>';
+var string_1 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6" > <p>%data%</p><input type="range" min="0" max="100" value="50" class="slider" id="%id%"><p>Todennäköisyys: <span id="demo%id2%"></span> %</p> </div><div class="col-md-3"></div></div>';
 var string_2 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <hr> </div><div class="col-md-3"></div></div>';
 var string_3 = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <br> </div><div class="col-md-3"></div></div>';
 var submit_string = '<div class="row"> <div class="col-md-3"> </div> <div class="col-md-6"> <form onclick="collect_data()"> <input type="button" value="Lähetä vastaukset"></form> </div><div class="col-md-3"></div></div>';
@@ -50,24 +52,51 @@ function up_date() {
 		question_strings[i] = text;
 		append_string = append_string.replace("%data%", text);
 		append_string = append_string.replace("%id%", id)
+		append_string = append_string.replace("%id2%", id)
 		$top.append(append_string);
+		slider = document.getElementById(i+1);
+		output = document.getElementById("demo"+ (i+1));
+		output.innerHTML = slider.value;
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+		}
 	}
+	// console.log(slider_id_json);
 	$top.append(submit_string + string_3);
+
 }
 
-function UserAction() {
-	location.href = "./questions.html";
-}
+// function launch_questions() {
+// 	location.href = "./questions.html";
+// }
 
 function S4() {
-    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+	return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
 }
- 
-// then to call it, plus stitch in '4' in the third group
-// guid = (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 
+var slider;
+var output;
 
-//var intro_items;
-//intro_items = $("#intro_text");
-//intro_items_2 = intro_items.find("p")
-//intro_items_2.css("font-size", "30px");
+document.addEventListener("mousedown", function(){
+	for (var i = 0; i<number_of_questions+1; i++) {
+		slider = document.getElementById(i+1);
+		output = document.getElementById("demo"+ (i+1));
+		if (slider.value) {
+			output.innerHTML = slider.value; 
+		}
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+		}
+	}
+});
+
+document.addEventListener("mouseup", function(){
+	for (var i = 0; i<number_of_questions+1; i++) {
+		slider = document.getElementById(i+1);
+		output = document.getElementById("demo"+ (i+1));
+		output.innerHTML = slider.value;
+		slider.oninput = function() {
+			output.innerHTML = this.value;
+		}
+	}
+});
