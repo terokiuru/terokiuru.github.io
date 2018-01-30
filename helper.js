@@ -77,26 +77,46 @@ function S4() {
 var slider;
 var output;
 
-document.addEventListener("mousedown", function(){
+// document.addEventListener("mousedown", function(){
+// 	for (var i = 0; i<number_of_questions+1; i++) {
+// 		slider = document.getElementById(i+1);
+// 		output = document.getElementById("demo"+ (i+1));
+// 		if (slider.value) {
+// 			output.innerHTML = slider.value; 
+// 		}
+// 		slider.oninput = function() {
+// 			output.innerHTML = this.value;
+// 		}
+// 	}
+// });
+
+// document.addEventListener("mouseup", function(){
+// 	for (var i = 0; i<number_of_questions+1; i++) {
+// 		slider = document.getElementById(i+1);
+// 		output = document.getElementById("demo"+ (i+1));
+// 		output.innerHTML = slider.value;
+// 		slider.oninput = function() {
+// 			output.innerHTML = this.value;
+// 		}
+// 	}
+// });
+
+document.addEventListener("mousemove", function(){
 	for (var i = 0; i<number_of_questions+1; i++) {
 		slider = document.getElementById(i+1);
 		output = document.getElementById("demo"+ (i+1));
-		if (slider.value) {
-			output.innerHTML = slider.value; 
-		}
-		slider.oninput = function() {
-			output.innerHTML = this.value;
+		if (slider != null) {
+			output.innerHTML = slider.value;
+			slider.oninput = function() {
+				if (output != null) {
+					output.innerHTML = this.value;
+				}
+			}
 		}
 	}
 });
 
-document.addEventListener("mouseup", function(){
-	for (var i = 0; i<number_of_questions+1; i++) {
-		slider = document.getElementById(i+1);
-		output = document.getElementById("demo"+ (i+1));
-		output.innerHTML = slider.value;
-		slider.oninput = function() {
-			output.innerHTML = this.value;
-		}
-	}
-});
+// var inp = document.getElementById('rangevalue');
+// inp.addEventListener("mousemove", function () {
+//     document.getElementById('text').innerHTML = this.value;
+// });
